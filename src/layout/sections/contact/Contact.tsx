@@ -33,6 +33,7 @@ export const Contact = () => {
 const StyledContacts = styled.section`
 
     button[type="submit"] {
+        
         align-self: flex-end;
 
         font-family: "Roboto", sans-serif;
@@ -43,6 +44,7 @@ const StyledContacts = styled.section`
     }
 
     textarea {
+        
         height: 160px;
         resize: none;
     }
@@ -51,6 +53,7 @@ const StyledContacts = styled.section`
 `
 
 const StyledForm = styled.form`
+    
     display: flex;
     flex-direction: column;
 
@@ -61,6 +64,7 @@ const StyledForm = styled.form`
 `
 
 const Field = styled.input`
+    
     width: 100%;
     height: 40px;
 
@@ -69,7 +73,6 @@ const Field = styled.input`
 `
 
 const FieldName = styled.label`
-    font-family: "Nunito", sans-serif;
 
     display: flex;
     flex-direction: column;

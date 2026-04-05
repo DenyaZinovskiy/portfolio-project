@@ -14,20 +14,20 @@ export const Footer = () => {
                         <StyledItem>
                             <StyledLink>
                             </StyledLink>
-                            <Icon iconId={"instagram"} width={"48"} height={"48"} viewBox={"0 0 48px 48px"}/>
+                            <Icon iconId={"instagram"} width={"48"} height={"48"} viewBox={"0 0 48 48"}/>
                         </StyledItem>
                         <StyledItem>
                             <StyledLink>
-                                <Icon iconId={"linkedin"} width={"48"} height={"48"} viewBox={"0 0 48px 48px"}/>
+                                <Icon iconId={"linkedin"} width={"48"} height={"48"} viewBox={"0 0 48 48"}/>
                             </StyledLink>
                         </StyledItem>
                         <StyledItem>
                             <StyledLink>
-                                <Icon iconId={"envelope"} width={"48"} height={"48"} viewBox={"0 0 48px 48px"}/>
+                                <Icon iconId={"envelope"} width={"48"} height={"48"} viewBox={"0 0 48 48"}/>
                             </StyledLink>
                         </StyledItem>
                     </StyledList>
-                    <Copyright>Madelyn Torff 2021</Copyright>
+                    <Copyright>Denis Zinovskiy 2026</Copyright>
                 </InfoWrapper>
             </Container>
         </StyledFooter>
@@ -35,6 +35,7 @@ export const Footer = () => {
 };
 
 const StyledFooter = styled.footer`
+    
     height: 344px;
     background-color: ${theme.colors.primaryBg};
 
@@ -43,6 +44,7 @@ const StyledFooter = styled.footer`
 `
 
 const StyledList = styled.ul`
+    
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -57,7 +59,6 @@ const StyledLink = styled.a`
 `
 
 const Copyright = styled.small`
-    font-family: "Nunito", sans-serif;
 
     font-weight: 400;
     font-size: 16px;
@@ -78,9 +79,10 @@ const InfoWrapper = styled(FlexWrapper)`
 
 
     &::after {
+        
         content: "";
         display: inline-block;
-        background-image: url("/wave-footer.svg");
+        background-image: url("${import.meta.env.BASE_URL}wave-footer.svg");
         width: 100%;
         height: 100%;
 

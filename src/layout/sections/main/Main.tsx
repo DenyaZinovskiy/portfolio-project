@@ -31,19 +31,22 @@ export const Main = () => {
 
 
 const StyledMain = styled.section`
-    background-color: ${theme.colors.primaryBg};
     
     display: flex;
     padding: 110px 0 70px 0;
 
     overflow-x: clip;
+
+    background-color: ${theme.colors.primaryBg};
 `
 
 const InfoWrapper = styled(FlexWrapper)`
+    
     max-width: 508px;
+
+    margin-top: 55px;
     
     text-align: start;
-    margin-top: 55px;
 
     z-index: 10;
 
@@ -57,11 +60,13 @@ const InfoWrapper = styled(FlexWrapper)`
 `
 
 const MainWrapper = styled(FlexWrapper)`
+    
     position: relative;
     z-index: 1;
 `
 
 const PhotoWrapper = styled.div`
+    
     position: absolute;
     right: -97px;
     top: -112px;
@@ -73,20 +78,17 @@ const Photo = styled.img`
     width: 100%;
     height: 100%;
     
-    mask: url("${import.meta.env.BASE_URL}yellow-bg.svg");
-    -webkit-mask: url("${import.meta.env.BASE_URL}yellow-bg.svg");
+    mask: url("${import.meta.env.BASE_URL}yellow-bg.svg"); //здесь без специального отображения через BASE_URL не хотело работать на GH-pages
+    -webkit-mask: url("${import.meta.env.BASE_URL}yellow-bg.svg"); // я так подозреваю из-за того, что они добавлены в public
 
     mask-size: cover;
     mask-repeat: no-repeat;
-
     mask-position: left bottom;
 
     background-color: ${theme.colors.accent};
-    
 `
 
 const MainTitle = styled.h1`
-    font-family: "Nunito", sans-serif;
 
     font-weight: 700;
     font-size: 20px;
@@ -94,10 +96,10 @@ const MainTitle = styled.h1`
     color: ${theme.colors.accent};
     
     margin-bottom: 12px;
-    
 `
 
 const Name = styled.p`
+    
     font-family: "Roboto", sans-serif;
 
     font-weight: 700;
@@ -113,7 +115,6 @@ const Name = styled.p`
 `
 
 const MainDescription = styled.p`
-    font-family: "Nunito", sans-serif;
 
     font-weight: 400;
     font-size: 24px;

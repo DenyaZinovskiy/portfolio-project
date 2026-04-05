@@ -23,6 +23,8 @@ export const Header = () => {
 
 const StyledHeader = styled.header`
 
+    display: flex;
+    
     height: 56px;
     //padding: 12px 0;
 
@@ -33,18 +35,9 @@ const StyledHeader = styled.header`
 
     z-index: 10;
 
-    display: flex;
-
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-
-    //&::before {
-    //    content: "";
-    //    position: absolute;
-    //    inset: 0;
-    //    background-color: 
-    //}
 
 `
 
@@ -57,28 +50,30 @@ const HeaderWrapper = styled(FlexWrapper)`
 const HeaderMenu = (props: { menuItems: Array<string> }) => {
     return (
         <StyledHeaderMenu>
-            <ul>
+            <Menu role="menu">
                 {props.menuItems.map((item, index) => {
-                    return <ListItem key={index}>
+                    return <ListItem key={index} role="menuitem">
                         <Link href=""> {item}</Link>
                     </ListItem>
                 })}
-            </ul>
+            </Menu>
         </StyledHeaderMenu>
     );
 };
 
 const StyledHeaderMenu = styled.nav`
     
-    ul {
-        display: flex;
-        gap: 48px
-    }
-    
     @media ${theme.media.tablet} {
         display: none;
     }
 `
+
+const Menu = styled.ul`
+    
+    display: flex;
+    gap: 48px
+`
+
 const ListItem = styled.li`
     
     font-family: "Raleway", sans-serif;

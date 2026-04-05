@@ -8,6 +8,8 @@ type ProjectPropsType = {
     title: string,
     text: string,
     src: string,
+    src2?: string,
+    alt: string,
 }
 
 
@@ -19,7 +21,7 @@ export const Project = (props: ProjectPropsType) => {
                 <ProjectDescription>{props.text}</ProjectDescription>
                 <Link width={150} height={43} borderRadius={24} border={`1px solid ${theme.colors.titlesFont}`}>View Project</Link>
             </ProjectWrapper>
-            <ProjectImage src={props.src}/>
+            <ProjectImage src={props.src} alt={props.alt} {...(props.src2 && { srcSet: `${props.src2} 2x` })} />
         </StyledProject>
     );
 };

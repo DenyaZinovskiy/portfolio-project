@@ -6,34 +6,35 @@ import {Icon} from "../../../components/icon/Icon.tsx";
 export const MobileMenu = (props: { menuItems: Array<string> }) => {
     return (
         <StyledMobileMenu>
-            <BurgerButton>
+            <BurgerButton aria-haspopup={true}>
                 <Icon iconId={"burger"} width={"24"} height={"24"} viewBox="0 0 24 24"/>
             </BurgerButton>
             <MobileMenuPopup>
-                <ul>
+                <Menu role="menu">
                     {props.menuItems.map((item, index) => {
-                        return <ListItem key={index}>
+                        return <ListItem key={index} role="menuitem">
                             <Link href=""> {item}</Link>
                         </ListItem>
                     })}
-                </ul>
+                </Menu>
             </MobileMenuPopup>
         </StyledMobileMenu>
     );
 };
 
 const StyledMobileMenu = styled.nav`
-    
-    ul {
-        display: flex;
-        gap: 48px
-    }
 
     display: none;
 
     @media ${theme.media.tablet} {
         display: flex;
     }
+`
+
+const Menu = styled.ul`
+    
+    display: flex;
+    gap: 48px
 `
 
 const MobileMenuPopup = styled.div`

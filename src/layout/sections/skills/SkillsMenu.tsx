@@ -4,31 +4,35 @@ import {Icon} from "../../../components/icon/Icon.tsx";
 export const SkillsMenu = (props: { menuItems: Array<string> }) => {
     return (
         <StyledMenu>
-            <ul>
+            <Menu>
                 {props.menuItems.map(iconId => {
-                    return <li>
+                    return <ListItem>
                     <Icon width="131" height="131" viewBox="0 0 131 131" iconId={iconId}/>
-                    </li>;
+                    </ListItem>;
                 })}
-            </ul>
+            </Menu>
         </StyledMenu>
     );
 };
 
 const StyledMenu = styled.nav`
-    ul {
-        display: flex;
-        gap: 74px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+    
+`
 
-    li {
-        width: 112px;
-        height: 112px;
+const Menu = styled.ul`
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    display: flex;
+    gap: 74px;
+    flex-wrap: wrap;
+    justify-content: center;
+`
+
+const ListItem = styled.li`
+
+    width: 112px;
+    height: 112px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `

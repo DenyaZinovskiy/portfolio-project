@@ -3,6 +3,7 @@ import {theme} from "../styles/Theme.ts";
 
 
 export const SectionTitle = styled.h2`
+    
     font-family: "Playfair Display", sans-serif;
     font-weight: 700;
     font-size: 48px;
@@ -10,7 +11,6 @@ export const SectionTitle = styled.h2`
     text-align: center;
     
     color: ${theme.colors.titlesFont};
-    //margin: 144px 0 80px;
     margin-bottom: 80px;
     
     position: relative;

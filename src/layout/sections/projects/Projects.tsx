@@ -3,6 +3,9 @@ import {SectionTitle} from "../../../components/SectionTitle.tsx";
 import proj1 from '../../../assets/images/proj-1.webp'
 import proj2 from '../../../assets/images/proj-2.webp'
 import proj3 from '../../../assets/images/proj-3.webp'
+import proj1x2 from '../../../assets/images/proj-1@2.webp'
+import proj2x2 from '../../../assets/images/proj-2@2.webp'
+import proj3x2 from '../../../assets/images/proj-3@2.webp'
 import {FlexWrapper} from "../../../components/FlexWrapper.tsx";
 import {Project} from "./project/Project.tsx";
 import {Container} from "../../../styles/Container.ts";
@@ -18,14 +21,20 @@ export const Projects = () => {
                     <Project title={"Project Name"}
                              text={"I created this personal project in order to show how to create an interface in Figma using a portfolio as an example."}
                              src={proj1}
+                             src2={proj1x2}
+                             alt="Project 1"
                     />
                     <Project title={"Project Name"}
                              text={"What was your role, your deliverables, if the project was personal, freelancing."}
                              src={proj2}
+                             src2={proj2x2}
+                             alt="Project 2"
                     />
                     <Project title={"Project Name"}
                              text={"You can also add in this description the type of the project, if it was for web, mobile, electron."}
                              src={proj3}
+                             src2={proj3x2}
+                             alt="Project 3"
                     />
                 </ProjectsWrapper>
             </Container>
@@ -34,10 +43,11 @@ export const Projects = () => {
 };
 
 const StyledProjects = styled.section`
+    
     article:nth-child(even) img {
         order: -1;
     }
-    
+
     @media ${theme.media.mobile} {
         article:nth-child(even) img {
             order: 1;
