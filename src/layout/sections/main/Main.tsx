@@ -73,8 +73,8 @@ const Photo = styled.img`
     width: 100%;
     height: 100%;
     
-    mask: url("/yellow-bg.svg");
-    -webkit-mask: url("/yellow-bg.svg");
+    mask: url("${import.meta.env.BASE_URL}yellow-bg.svg");
+    -webkit-mask: url("${import.meta.env.BASE_URL}yellow-bg.svg");
 
     mask-size: cover;
     mask-repeat: no-repeat;
