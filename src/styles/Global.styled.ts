@@ -17,7 +17,6 @@ export const GlobalStyle = createGlobalStyle`
         sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        
     }
 
     a {
@@ -38,14 +37,9 @@ export const GlobalStyle = createGlobalStyle`
         monospace;
     }
     
-    section:nth-of-type(odd) {
+    section + section {
         background-color: ${theme.colors.primaryBg};
-        padding: 144px 0 0 0;
-    }
-    
-    section:nth-of-type(even) {
-        background-color: ${theme.colors.primaryBg};
-        padding: 144px 0 0 0;
+        padding: 70px 0;
     }
     
     h1 {

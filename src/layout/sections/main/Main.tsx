@@ -10,7 +10,7 @@ export const Main = () => {
     return (
         <StyledMain>
             <Container>
-                <MainWrapper direction="row" align={"center"}>
+                <MainWrapper direction="row">
                     <InfoWrapper direction="column">
                         <MainTitle>Software Developer</MainTitle>
                         <Name>Hello, my name is Denis Zinovskiy</Name>
@@ -31,10 +31,12 @@ export const Main = () => {
 
 
 const StyledMain = styled.section`
-    min-height: 100vh;
     background-color: ${theme.colors.primaryBg};
     
     display: flex;
+    padding: 110px 0 70px 0;
+
+    overflow-x: clip;
 `
 
 const InfoWrapper = styled(FlexWrapper)`
@@ -42,6 +44,16 @@ const InfoWrapper = styled(FlexWrapper)`
     
     text-align: start;
     margin-top: 55px;
+
+    z-index: 10;
+
+    @media ${theme.media.main} {
+        margin-top: 357px;
+    }
+
+    @media ${theme.media.mobile} {
+        margin-top: 325px;
+    }
 `
 
 const MainWrapper = styled(FlexWrapper)`
@@ -51,8 +63,8 @@ const MainWrapper = styled(FlexWrapper)`
 
 const PhotoWrapper = styled.div`
     position: absolute;
-    right: -127px;
-    top: -57px;
+    right: -97px;
+    top: -112px;
 `
 
 
@@ -82,6 +94,7 @@ const MainTitle = styled.h1`
     color: ${theme.colors.accent};
     
     margin-bottom: 12px;
+    
 `
 
 const Name = styled.p`
@@ -93,6 +106,10 @@ const Name = styled.p`
     color: ${theme.colors.titlesFont};
 
     margin-bottom: 32px;
+
+    @media ${theme.media.mobile} {
+        font-size: 42px;
+    }
 `
 
 const MainDescription = styled.p`

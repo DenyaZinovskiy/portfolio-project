@@ -17,6 +17,5 @@ export const Skills = () => {
 };
 
 const StyledSkills = styled.section`
-
-    background-color: #bdf4ff;
-`;
+    
+`

@@ -8,20 +8,18 @@ type ProjectPropsType = {
     title: string,
     text: string,
     src: string,
-    imageOrder?: number
-    margin?: string
 }
 
 
 export const Project = (props: ProjectPropsType) => {
     return (
         <StyledProject>
-            <ProjectWrapper direction="column" gap={24} justify="center" marginP={props.margin}>
+            <ProjectWrapper direction="column" gap={24} justify="center">
                 <ProjectTitle>{props.title}</ProjectTitle>
                 <ProjectDescription>{props.text}</ProjectDescription>
                 <Link width={150} height={43} borderRadius={24} border={`1px solid ${theme.colors.titlesFont}`}>View Project</Link>
             </ProjectWrapper>
-            <ProjectImage src={props.src} order={props.imageOrder || 0}/>
+            <ProjectImage src={props.src}/>
         </StyledProject>
     );
 };
@@ -34,22 +32,31 @@ const StyledProject = styled.article`
     min-height: 524px;
     
     display: flex;
-    align-items: center;
 
     border-radius: 24px;
     box-shadow: 0 6px 64px 0 rgba(112, 144, 176, 0.1);
     overflow: hidden;
     
     justify-content: space-between;
+    
+    @media ${theme.media.mobile} {
+        flex-direction: column-reverse;
+    }
 `
 
-const ProjectWrapper = styled(FlexWrapper)<{ marginP? : string }>`
+const ProjectWrapper = styled(FlexWrapper)`
+
+    padding: 0 45px;
     
-    margin: ${props => props.marginP};
-    width: 406px;
-    height: 232px;
-    
-    align-items: flex-start;
+    flex: 1 1 50%;
+
+    @media ${theme.media.mobile} {
+        min-height: 259px;
+        
+        align-items: center;
+
+        padding: 130px 30px;
+    }
 `
 
 
@@ -60,6 +67,8 @@ const ProjectTitle = styled.h3`
     font-size: 40px;
     line-height: 1.5;
     color: ${theme.colors.titlesFont};
+    
+    text-align: left;
 `
 
 const ProjectDescription = styled.p`
@@ -73,12 +82,13 @@ const ProjectDescription = styled.p`
     text-align: start;
 `
 
-const ProjectImage = styled.img<{ order: number }>`
-    order: ${props => props.order};
-    max-width: 496px;
-    width: 100%;
-    height: 526px;
+const ProjectImage = styled.img`
     object-fit: cover;
+    min-width: 0;
+    
+    flex: 1 1 50%;
+    
+    @media ${theme.media.mobile} {
+        min-height: 522px;
+    }
 `
-
-

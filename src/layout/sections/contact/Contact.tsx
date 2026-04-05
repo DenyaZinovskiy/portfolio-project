@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {SectionTitle} from "../../../components/SectionTitle.tsx";
 import {Button} from "../../../components/Button.tsx";
 import {Container} from "../../../styles/Container.ts";
+import {theme} from "../../../styles/Theme.ts";
 
 
 export const Contact = () => {
@@ -30,9 +31,23 @@ export const Contact = () => {
 };
 
 const StyledContacts = styled.section`
-    background-color: #c6fdc6;
-    min-height: 50vh;
 
+    button[type="submit"] {
+        align-self: flex-end;
+
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 1.5;
+        color: ${theme.colors.titlesFont};
+    }
+
+    textarea {
+        height: 160px;
+        resize: none;
+    }
+    
+    padding-bottom: 56px;
 `
 
 const StyledForm = styled.form`
@@ -46,10 +61,25 @@ const StyledForm = styled.form`
 `
 
 const Field = styled.input`
-    display: block;
+    width: 100%;
+    height: 40px;
+
+    border: 1px solid #e8ecf4;
+    border-radius: 8px;
 `
 
 const FieldName = styled.label`
+    font-family: "Nunito", sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    font-weight: 600;
+    font-size: 16px;
+    color: ${theme.colors.titlesFont};
 
 `
+
+
 

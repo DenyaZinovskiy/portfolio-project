@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import {Logo} from "../../components/logo/Logo.tsx";
-import {Menu} from "../../components/menu/Menu.tsx";
 import {theme} from "../../styles/Theme.ts";
 import {Container} from "../../styles/Container.ts";
 import {FlexWrapper} from "../../components/FlexWrapper.tsx";
+import {MobileMenu} from "./mobileMenu/MobileMenu.tsx";
 
 const items = ["About", "Projects", "Contacts"]
 
@@ -13,7 +13,8 @@ export const Header = () => {
             <Container>
                 <HeaderWrapper justify="space-between" align={"center"}>
                     <Logo/>
-                    <Menu menuItems={items}/>
+                    <HeaderMenu menuItems={items}/>
+                    <MobileMenu menuItems={items}/>
                 </HeaderWrapper>
             </Container>
         </StyledHeader>
@@ -21,15 +22,72 @@ export const Header = () => {
 };
 
 const StyledHeader = styled.header`
-    background-color: ${theme.colors.primaryBg};
+
     height: 56px;
-    padding: 12px 0;
+    //padding: 12px 0;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    z-index: 10;
+
+    display: flex;
+
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    //&::before {
+    //    content: "";
+    //    position: absolute;
+    //    inset: 0;
+    //    background-color: 
+    //}
+
 `
 
 const HeaderWrapper = styled(FlexWrapper)`
     
     position: relative;
     height: 100%;
-    z-index: 10;
+`
+
+const HeaderMenu = (props: { menuItems: Array<string> }) => {
+    return (
+        <StyledHeaderMenu>
+            <ul>
+                {props.menuItems.map((item, index) => {
+                    return <ListItem key={index}>
+                        <Link href=""> {item}</Link>
+                    </ListItem>
+                })}
+            </ul>
+        </StyledHeaderMenu>
+    );
+};
+
+const StyledHeaderMenu = styled.nav`
     
+    ul {
+        display: flex;
+        gap: 48px
+    }
+    
+    @media ${theme.media.tablet} {
+        display: none;
+    }
+`
+const ListItem = styled.li`
+    
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.6;
+`
+
+const Link = styled.a`
+    
+    color: ${theme.colors.titlesFont};
 `

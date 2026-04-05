@@ -1,16 +1,15 @@
 import styled from "styled-components";
 import {FlexWrapper} from "../../components/FlexWrapper.tsx";
-import {Icon} from "../../components/icon/Icon.tsx";
-import FooterImg from "./../../assets/images/footer.webp"
 import {Container} from "../../styles/Container.ts";
 import {theme} from "../../styles/Theme.ts";
+import {Icon} from "../../components/icon/Icon.tsx";
 
 
 export const Footer = () => {
     return (
         <StyledFooter>
             <Container>
-                <FlexWrapper direction="column" align={"center"}>
+                <InfoWrapper>
                     <StyledList>
                         <StyledItem>
                             <StyledLink>
@@ -29,16 +28,18 @@ export const Footer = () => {
                         </StyledItem>
                     </StyledList>
                     <Copyright>Madelyn Torff 2021</Copyright>
-                    <FooterImage src={FooterImg}/>
-                </FlexWrapper>
+                </InfoWrapper>
             </Container>
         </StyledFooter>
     );
 };
 
 const StyledFooter = styled.footer`
-    min-height: 30vh;
+    height: 344px;
     background-color: ${theme.colors.primaryBg};
+
+    position: relative;
+}
 `
 
 const StyledList = styled.ul`
@@ -56,11 +57,45 @@ const StyledLink = styled.a`
 `
 
 const Copyright = styled.small`
+    font-family: "Nunito", sans-serif;
 
+    font-weight: 400;
+    font-size: 16px;
+    color: ${theme.colors.descriptionsFont};
+    
+    text-align: center;
 `
 
-const FooterImage = styled.img`
-    width: 100%;
-    object-fit: cover;
+const InfoWrapper = styled(FlexWrapper)`
+    
+    max-width: 192px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 32px;
+    
+    margin: 0 auto;
+
+
+    &::after {
+        content: "";
+        display: inline-block;
+        background-image: url("/wave-footer.svg");
+        width: 100%;
+        height: 100%;
+
+        background-repeat: no-repeat;
+
+        position: absolute;
+        background-position: bottom;
+        background-size: 100% 100%;
+
+        bottom: 0;
+        left: 0;
+        
+        @media ${theme.media.tablet} {
+            background-size: contain;
+        }
 `
+
 
